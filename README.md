@@ -2,6 +2,17 @@ Project Euler Problems
 ======================
 Literate Coffeescript implementation of [ProjectEuler] problems.
 
+Running
+-------
+Create the VM as described below, or otherwise get a [NodeJS] installation on
+your system. Install Coffeescript using `npm`:
+
+    npm install -g coffee-script
+
+To run a problem use:
+
+    coffee 001.litcoffee
+
 
 Development: Vagrant/Virtualbox VM
 ----------------------------------
