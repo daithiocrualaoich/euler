@@ -8,13 +8,13 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 
 Answer
 ======
-Pimp a little number theory onto the Javascript number object.
+Include library functions for Number Theory.
 
-    Number.prototype.divides = (n) -> n % this == 0
+    require('./number-theory')
 
 Don't include 1000 in this perverted Fizz Buzz.
 
     candidates = (n for n in [1..999] when 3.divides(n) || 5.divides(n))
-    answer = candidates.reduce (x,y) -> x + y
+    answer = candidates.sum()
 
     console.log(answer)
