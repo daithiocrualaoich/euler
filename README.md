@@ -33,7 +33,7 @@ To build the VM, change to the `dev/vagrant` directory and run the provide
 
 Building the VM may take some time, particularly on the first occasion when
 Ubuntu base images are downloaded. The completed VM will be output at
-`dev/vagrant/noted'.box`.
+`dev/vagrant/euler'.box`.
 
 To use this VM, change back to the root of the repository and use the
 `Vagrantfile` provided there to create an instance of the VM:
