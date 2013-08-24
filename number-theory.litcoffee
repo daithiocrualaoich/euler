@@ -28,6 +28,18 @@ A sort is always useful.
 
     Array.prototype.sorted = () -> this.sort (n, m) -> n - m
 
+Count the distinct elements in a list.
+
+    Array.prototype.count_distinct = () ->
+      counts = {}
+
+      for element in this
+        if element.toString() not in Object.keys(counts)
+          counts[element] = 0
+        counts[element] += 1
+
+      counts
+
 
 Divisibility
 ------------
@@ -94,3 +106,24 @@ unique prime factorizations, even this badly.
           factor++
 
       factors
+
+    Number.prototype.prime_factor_powers = () ->
+      this.prime_factors().count_distinct()
+
+
+Number of divisors
+------------------
+The number of divisors that a number has can be calculated from its prime
+decomposition. Each divisor must have the same primes as the number itself but
+at the same or lower counts.
+
+For instance, 28 = 2 x 2 x 7 = 2^2 x 7^1. This has (2+1)x(1+1) = 6 divisors
+corresponding to those with 0,1,2 powers of 2 and 0,1 powers of 7.
+
+    Number.prototype.num_divisors = () ->
+      prime_powers = this.prime_factor_powers()
+      factor_power_choices = (prime_powers[p]+1 for p in Object.keys(prime_powers))
+
+      factor_power_choices.product()
+
+    module.exports.tau = (n) -> n.num_divisors()
