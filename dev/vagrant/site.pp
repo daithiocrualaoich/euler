@@ -40,7 +40,14 @@ node default {
 
   include nodejs
 
-  Package['build-essential'] -> Class['nodejs']
+  exec {
+    'install-coffeescript':
+      command => '/usr/local/bin/npm install -g coffee-script',
+      creates => '/usr/local/bin/coffee',
+      timeout => 0
+  }
+
+  Package['build-essential'] -> Class['nodejs'] -> Exec['install-coffeescript']
 
 
   ##############################################################################
