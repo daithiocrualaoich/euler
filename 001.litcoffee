@@ -14,7 +14,7 @@ Include library functions for Number Theory.
 
 Don't include 1000 in this perverted Fizz Buzz.
 
-    candidates = (n for n in [1..999] when 3.divides(n) || 5.divides(n))
-    answer = candidates.sum()
+    multiples = (n for n in [1..999] when 3.divides(n) || 5.divides(n))
 
+    answer = multiples.sum()
     console.log(answer)

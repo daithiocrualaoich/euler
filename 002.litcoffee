@@ -27,7 +27,7 @@ make sure to have horrible control flow.
 
 Just the even ones...
 
-    candidates = (fib for fib in fibs when 2.divides(fib))
-    answer = candidates.sum()
+    even_fibs = (fib for fib in fibs when 2.divides(fib))
 
+    answer = even_fibs.sum()
     console.log(answer)
