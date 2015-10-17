@@ -10,7 +10,11 @@
  * four million, find the sum of the even-valued terms.
  */
 
-def divides(n: Int, d: Int): Boolean = n % d == 0
+import scala.language.{implicitConversions, reflectiveCalls}
+
+implicit def Int2Divides(d: Int) = new {
+  def divides(n: Int): Boolean = n % d == 0
+}
 
 // Try not to be too much of an idiot about the implementation. On the other
 // hand, make sure to have horrible control flow.
@@ -27,7 +31,7 @@ val fibs: Iterator[Int] = Iterator(1, 2) ++ new Iterator[Int] {
 }
 
 // Just the small even ones...
-val evenFibs = fibs takeWhile { _ <= 4000000 } filter { n => divides(n, 2) }
+val evenFibs = fibs takeWhile { _ <= 4000000 } filter { 2 divides _ }
 
 val answer = evenFibs.sum
 println(answer)

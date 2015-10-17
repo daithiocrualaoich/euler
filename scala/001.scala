@@ -8,10 +8,14 @@
  *
  */
 
-def divides(n: Int, d: Int): Boolean = n % d == 0
+import scala.language.{implicitConversions, reflectiveCalls}
+
+implicit def Int2Divides(d: Int) = new {
+  def divides(n: Int): Boolean = n % d == 0
+}
 
 val multiples = Range(1, 1000) filter { n =>
-  divides(n, 3) || divides(n, 5)
+  (3 divides n) || (5 divides n)
 }
 
 val answer = multiples.sum
