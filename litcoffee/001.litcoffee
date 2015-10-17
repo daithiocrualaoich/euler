@@ -12,7 +12,7 @@ Include library functions for Number Theory.
 
     require('./number-theory')
 
-Don't include 1000 in this perverted Fizz Buzz.
+Don't include 1000 in this strange Fizz Buzz.
 
     multiples = (n for n in [1..999] when 3.divides(n) || 5.divides(n))
 
