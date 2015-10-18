@@ -16,5 +16,5 @@ Include library functions for Number Theory.
 Lowest common multiple can be calculated piecewise. Uses Euclid's Algorithm to
 calculate greatest common divisors and form lowest common multiples.
 
-    answer = [1..20].reduce (x, y) -> lcm(x, y)
+    answer = [1..20].reduce (n, m) -> lcm(n, m)
     console.log(answer)

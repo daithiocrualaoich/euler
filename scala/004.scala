@@ -16,8 +16,8 @@ implicit def Int2IsPalindromic(n: Int) = new {
 
 // Form all the products of two 3-digit numbers.
 val products = for {
-  n <- 100 to 1000
-  m <- 100 to 1000
+  n <- 100 to 999
+  m <- 100 to 999
 } yield n * m
 
 // Filter nonpalindromic numbers.
