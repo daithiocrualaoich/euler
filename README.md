@@ -1,13 +1,12 @@
 Project Euler Problems
 ======================
-Implementation of [ProjectEuler] problems.
+Implementations of the [Project Euler] problems in Literate Coffeescript, Rust,
+and Scala.
 
 Literate Coffeescript
 ---------------------
 Create the Docker as described below, or otherwise get a [NodeJS] installation
-on your system. Install Coffeescript using `npm`:
-
-    npm install -g coffee-script
+with [Coffee] on your system.
 
 To run a problem use:
 
@@ -45,13 +44,13 @@ terminal. Then create the container image using:
 
 Run a shell in the development container with:
 
-    docker run -it -v $(pwd):/docker euler /bin/bash
+    docker run -it -v $(pwd):/euler euler /bin/bash
 
 The current working directory from the host machine is available at `/docker`
 inside the container. Change to that directory before running the problems as
 described above.
 
-    cd /docker
+    cd /euler
 
 From time to time, it is necessary to clean up old containers and images to
 reclaim space. To do this, run:
@@ -65,8 +64,9 @@ the `euler` image build. The next subsequent build will be cache busted in
 required for images that have been cached for a long time.
 
 
-[ProjectEuler]: http://projecteuler.net
+[Project Euler]: http://projecteuler.net
 [NodeJS]: http://nodejs.org
-[Scala]: http://www.scala-lang.org/
-[Rust]: https://www.rust-lang.org/
+[Coffee]: http://coffeescript.org
+[Scala]: http://www.scala-lang.org
+[Rust]: https://www.rust-lang.org
 [Docker]: http://docker.io
