@@ -6,33 +6,38 @@
  * What is the largest prime factor of the number 600851475143 ?
  */
 
-fn is_divisible_by(n: u64, d: u64) -> bool {
-  n % d == 0
+trait NumberTheory {
+  fn divides(&self, n: u64) -> bool;
+  fn prime_factors(&self) -> Vec<u64>;
 }
 
-fn prime_factors(n: u64) -> Vec<u64> {
-  let mut factors: Vec<u64> = vec![2];
-
-  let mut factor: u64 = 2;
-  let mut quotient: u64 = n;
-
-  while quotient > 1 {
-    if is_divisible_by(quotient, factor) {
-      factors.push(factor);
-      quotient = quotient / factor;
-    } else {
-      factor = factor + 1;
+impl NumberTheory for u64 {
+  fn divides(&self, n: u64) -> bool { n % *self == 0}
+  
+  fn prime_factors(&self) -> Vec<u64> {
+    let mut factors: Vec<u64> = vec![];
+  
+    let mut factor: u64 = 2;
+    let mut quotient: u64 = *self;
+  
+    while quotient > 1 {
+      if factor.divides(quotient) {
+          factors.push(factor);
+          quotient = quotient / factor;
+      } else {
+        factor = factor + 1;
+      }
     }
+  
+    factors.sort();
+  
+    factors
   }
-
-  factors.sort();
-
-  factors
 }
 
 fn main() {
   // Prime decomposition and a sequence maximum will take care of this.
-  let factors = prime_factors(600851475143);
+  let factors = 600851475143.prime_factors();
   let answer = factors.iter().max().unwrap();
   println!("{}", answer);
 }

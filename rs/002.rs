@@ -10,17 +10,22 @@
  *  four million, find the sum of the even-valued terms.
  */
 
-fn is_divisible_by(n: u32, d: u32) -> bool {
-  n % d == 0
+trait NumberTheory {
+  fn divides(&self, n: u32) -> bool;
 }
+
+impl NumberTheory for u32 {
+  fn divides(&self, n: u32) -> bool { n % *self == 0 }
+}
+
 
 fn main() {
   // Try not to be too much of an idiot about the implementation. On the other
   // hand, make sure to have horrible control flow.
-  let mut fibs = vec![1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
+  let mut fibs: Vec<u32> = vec![1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
 
   loop {
-    let next_fib;
+    let next_fib: u32;
 
     {
       let slice = &fibs[(fibs.len() - 2)..];
@@ -35,8 +40,8 @@ fn main() {
   }
 
   // Just the even ones...
-  let even_fibs = fibs.iter().filter(|n: &&u32| is_divisible_by(**n, 2));
+  let even_fibs = fibs.iter().filter(|n: &&u32| 2.divides(**n));
 
-  let answer = even_fibs.fold(0, |sum, n| sum + n);
+  let answer: u32 = even_fibs.fold(0, |sum, n| sum + n);
   println!("{}", answer);
 }
