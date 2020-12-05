@@ -1,5 +1,7 @@
 *.iml
 .idea
+.vscode
+.metals
 .vagrant
 .project
 *.box
