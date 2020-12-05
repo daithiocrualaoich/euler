@@ -24,12 +24,14 @@ To run a problem use:
 
 Scala
 -----
-Create the Docker as described below, or otherwise get a [Scala] installation
-on your system.
+Create the Docker as described below, or otherwise get a JVM installation
+on your system. Then use the bootstrap [Ammonite] script in the `scala`
+directory.
 
 To run a problem use:
 
-    scala 001.scala
+    cd scala
+    ./amm 001.scala
 
 Development: Docker
 -------------------
@@ -67,6 +69,6 @@ required for images that have been cached for a long time.
 [Project Euler]: http://projecteuler.net
 [NodeJS]: http://nodejs.org
 [Coffee]: http://coffeescript.org
-[Scala]: http://www.scala-lang.org
+[Ammonite]: https://ammonite.io
 [Rust]: https://www.rust-lang.org
 [Docker]: http://docker.io
