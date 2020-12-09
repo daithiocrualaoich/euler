@@ -11,6 +11,14 @@ To run a problem use:
 
     coffee 001.litcoffee
 
+Python
+------
+Requires a [Python] installation on your system.
+
+To run a problem use:
+
+    python 001.py
+
 Rust
 ----
 Requires a [Rust] installation on your system.
@@ -30,8 +38,9 @@ To run a problem use the bootstrap [Ammonite] script in the `scala` directory:
     ./amm 001.scala
 
 
-[Project Euler]: http://projecteuler.net
-[NodeJS]: http://nodejs.org
-[Coffee]: http://coffeescript.org
+[Project Euler]: https://projecteuler.net
+[NodeJS]: https://nodejs.org
+[Coffee]: https://coffeescript.org
+[Python]: https://python.org
 [Ammonite]: https://ammonite.io
 [Rust]: https://www.rust-lang.org
