@@ -30,7 +30,7 @@ To run a problem use:
 
 Scala
 -----
-Requiers a JVM installation on your system.
+Requires a JVM installation on your system.
 
 To run a problem use the bootstrap [Ammonite] script in the `scala` directory:
 
