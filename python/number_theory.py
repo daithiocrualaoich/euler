@@ -3,6 +3,24 @@
 '''
 
 
+def is_prime(n):
+    '''
+        Test if n is prime by trial division.
+    '''
+
+    if n < 2:
+        return False
+
+    d = 2
+
+    while d * d <= n:
+        if n % d == 0:
+            return False
+        d += 1
+
+    return True
+
+
 def factorial(n):
     '''
         Return n! for n >= 0.
@@ -29,3 +47,24 @@ def digit_expansion(n):
         digits.append(n % 10)
 
         return digits
+
+
+def rotations(n):
+    '''
+        Return a list of the digit rotations of n for n >= 0.
+    '''
+
+    rotations = []
+    digits = digit_expansion(n)
+
+    for i in range(len(digits)):
+        # Make the next rotation.
+        digits.append(digits.pop(0))
+        rotation = int(''.join(str(d) for d in digits))
+
+        rotations.append(rotation)
+
+    # Some rotations can be the same number.
+    rotations = set(rotations)
+
+    return rotations
