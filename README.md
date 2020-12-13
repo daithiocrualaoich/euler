@@ -3,6 +3,7 @@ Project Euler Problems
 Implementations of the [Project Euler] problems in Literate Coffeescript, Rust,
 and Scala.
 
+
 Literate Coffeescript
 ---------------------
 Requires a [NodeJS] installation with [Coffee] on your system.
@@ -10,6 +11,7 @@ Requires a [NodeJS] installation with [Coffee] on your system.
 To run a problem use:
 
     coffee 001.litcoffee
+
 
 Python
 ------
@@ -19,6 +21,28 @@ To run a problem use:
 
     python 001.py
 
+### Python Installation (macOS)
+Create a Python development environment using [pyenv].
+
+    $ brew install pyenv
+
+[pyenv]: https://github.com/pyenv/pyenv
+
+Follow the caveats printed and add the following to your `.zprofile`.
+
+    # Homebrew Pyenv initialisation.
+    if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+Commands:
+
+* `pyenv version` to show current Python version.
+* `pyenv versions` to list available local Python versions.
+* `pyenv install --list` to show Python versions available to install.
+* `pyenv install <version>` to install a new Python version.
+* `pyenv global <version>` to select a given Python version for use.
+* `pyenv uninstall <version>` to delete a given Python version.
+
+
 Rust
 ----
 Requires a [Rust] installation on your system.
@@ -27,6 +51,7 @@ To run a problem use:
 
     rustc 001.rs
     ./001
+
 
 Scala
 -----
