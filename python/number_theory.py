@@ -35,16 +35,16 @@ def factorial(n):
     return n * factorial(n - 1)
 
 
-def digit_expansion(n):
+def digit_expansion(n, base=10):
     '''
         Return a list of the digits in n for n >= 0.
     '''
 
-    if n < 10:
+    if n < base:
         return [n]
     else:
-        digits = digit_expansion(n // 10)
-        digits.append(n % 10)
+        digits = digit_expansion(n // base, base)
+        digits.append(n % base)
 
         return digits
 
@@ -68,3 +68,14 @@ def rotations(n):
     rotations = set(rotations)
 
     return rotations
+
+
+def reverse(n):
+    '''
+        Reverse the digits in an integer.
+    '''
+
+    digits = digit_expansion(n)
+    digits.reverse()
+
+    return int(''.join(str(d) for d in digits))
