@@ -1,7 +1,7 @@
 Project Euler Problems
 ======================
-Implementations of the [Project Euler] problems in Literate Coffeescript, Rust,
-and Scala.
+Implementations of [Project Euler] problems in Literate Coffeescript, Python,
+Rust, and Scala.
 
 
 Literate Coffeescript
