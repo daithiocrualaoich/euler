@@ -1,4 +1,6 @@
 /*
+ * Counting Sundays
+ * ================
  * You are given the following information, but you may prefer to do some
  * research for yourself.
  *
@@ -35,7 +37,7 @@ case class Date(year: Int, month: Int, day: Int) {
       case (_, 9, 30) => Date(year, month + 1, 1)
       case (_, 11, 30) => Date(year, month + 1, 1)
 
-      // Next Years
+      // New year rollover.
       case (_, 12, 31) => Date(year + 1, 1, 1)
 
       // All the rest have 31.
@@ -56,7 +58,7 @@ while (date.year < 1901) {
   date = date.nextDate
 }
 
-// Count weekday == 0, day == 1 combinations while year < 2001
+// Count weekday == 0, day == 1 combinations while year < 2001.
 var sundays = 0
 while (date.year < 2001) {
   if (weekday == 0 && date.day == 1) {
@@ -67,5 +69,5 @@ while (date.year < 2001) {
   date = date.nextDate
 }
 
-val answer = sundays
+val answer = sundays // = 171
 println(answer)

@@ -1,4 +1,6 @@
 /*
+ * Number Spiral Diagonals
+ * =======================
  * Starting with the number 1 and moving to the right in a clockwise direction
  * a 5 by 5 spiral is formed as follows:
  *
@@ -17,12 +19,12 @@
 
 // Recursion is the approach here. Given the diagonal sum of a (n-2) x (n-2)
 // spiral, we can calculate the corners of the n x n spiral which contains it
-// and then add them to the sum.
+// and add them to the sum.
 //
 // The new corner values are:
 //
 //    Top right => n^2
-//    Top left => n^2 - (n-1), i.e. n-1 BACK from the top right corner.
+//    Top left => n^2 - (n-1), i.e. n-1 back from the top right corner.
 //    Bottom left => n^2 - (n-1) - (n-1), i.e. n-1 back from the top left.
 //    Bottom right => n^2 - 3*(n-1), i.e. n-1 back from the bottom left.
 //
@@ -33,5 +35,5 @@ def numberSpiralDiagonalSum(n: Int): Int = n match {
   case _ => numberSpiralDiagonalSum(n-2) + 4*n*n - 6*n + 6
 }
 
-val answer = numberSpiralDiagonalSum(1001)
+val answer = numberSpiralDiagonalSum(1001) // = 669,171,001
 println(answer)

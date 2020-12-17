@@ -1,4 +1,6 @@
 /*
+ * Maximum Path Sum II
+ * ===================
  * By starting at the top of the triangle below and moving to adjacent numbers
  * on the row below, the maximum total from top to bottom is 23.
  *
@@ -11,19 +13,21 @@
  *
  * Find the maximum total from top to bottom in p067_triangle.txt, a 15K text
  * file containing a triangle with one-hundred rows.
- *
  */
+
+// Follow solution from problem 018.
+//
+// Build up from the bottom row recursively.
+//
+//  Base Case: The maximum total for top to bottom for the subtree located at
+//             each of the bottom row nodes is the value in the node.
+//  Recursive: For an internal node, the maximum total from it to the bottom is
+//             the value in the node plus the maximum total in the nodes
+//             adjacent to it in the next row.
 
 // Read p067_triangle.txt to Array[Array[Int]]
 val lines = scala.io.Source.fromFile("p067_triangle.txt").getLines
 val tree = lines.toArray map { _.split(" ").map { _.toInt } }
-
-//
-// Build up from the bottom row. The maximum total for top to bottom for the
-// subtree located at each of the bottom row nodes is the value in the node.
-// For an internal now, the maximum total from it to the bottom is the value in
-// the node plus the maximum total in the nodes adjacent to it in the next row.
-//
 
 // Mutate `tree` into a maximum heights structure row by row.
 for {
@@ -36,5 +40,5 @@ for {
   )
 }
 
-val answer = tree(0)(0)
+val answer = tree(0)(0) // = 7,273
 println(answer)

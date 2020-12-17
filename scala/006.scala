@@ -1,5 +1,5 @@
 /*
- * Sum square difference
+ * Sum Square Difference
  * =====================
  * The sum of the squares of the first ten natural numbers is,
  * 1^2 + 2^2 + ... + 10^2 = 385
@@ -14,9 +14,15 @@
  * natural numbers and the square of the sum.
  */
 
-// Straightforward list comprehensions and sums.
+// There are formulas for sum of integers and sum of integer squares:
+//
+//   1 + 2 + 3 + ... + n= n(n+1)/2
+//   1^2 + 2^2 + ... + n^2 = n(n+1)(2n+1)/6
+//
+// But as easy to calculate it out.
+
 val sum = (1 to 100).sum
 val sumSquares = (1 to 100).map { n => n * n }.sum
 
-val answer = sum*sum - sumSquares
+val answer = sum*sum - sumSquares // = 25,164,150
 println(answer)

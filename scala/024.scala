@@ -1,4 +1,6 @@
 /*
+ * Lexicographic Permutations
+ * ==========================
  * A permutation is an ordered arrangement of objects. For example, 3124 is one
  * possible permutation of the digits 1, 2, 3 and 4. If all of the permutations
  * are listed numerically or alphabetically, we call it lexicographic order. The
@@ -10,7 +12,6 @@
  * 5, 6, 7, 8 and 9?
  */
 
-//
 // The first 9! = 362,880 permutations have a leading 0.
 // The next 9! = 362,880 permutations have a leading 1.
 //
@@ -23,11 +24,10 @@
 // of 0, 1, 3, 4, 5, 6, 7, 8, 9.
 //
 // This generalises to a recursive solution.
-//
 
 def factorial(n: Int): Int = (1 to n).product
 
-def findNthLexicographicPermutation(n: Int, elements: List[Int]): String = n match {
+def findNthLexicographicPermutation(n: Int, elements: Seq[Int]): String = n match {
   case 1 => elements.sorted.mkString
 
   case _ =>
@@ -43,5 +43,5 @@ def findNthLexicographicPermutation(n: Int, elements: List[Int]): String = n mat
     first.toString + findNthLexicographicPermutation(remainingN, remainingElements)
 }
 
-val answer = findNthLexicographicPermutation(1000000, List(0, 1, 2, 3, 4, 5, 6, 7, 8, 9))
+val answer = findNthLexicographicPermutation(1_000_000, 0 to 9) // = 2,783,915,460
 println(answer)

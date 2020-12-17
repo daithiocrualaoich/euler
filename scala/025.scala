@@ -1,4 +1,6 @@
 /*
+ * 1000-Digit Fibonacci Number
+ * ===========================
  * The Fibonacci sequence is defined by the recurrence relation:
  *
  *    Fn = Fn−1 + Fn−2, where F1 = 1 and F2 = 1.
@@ -24,33 +26,37 @@
  * digits?
  */
 
-val length = 1000
+// 1000 digits will overflow 64 bit arithmetic so we calculate this by column.
+
+val digits = 1000
 
 var currentFibonacci = 2
-var currentValue = Array.fill[Int](length) { 0 }
+var currentValue = Array.fill[Int](digits) { 0 }
 currentValue(0) = 1
 
-var lastValue = Array.fill[Int](length) { 0 }
-lastValue(0) = 1
+var previousValue = Array.fill[Int](digits) { 0 }
+previousValue(0) = 1
 
-var nextValue = Array.fill[Int](length) { 0 }
+var nextValue = Array.fill[Int](digits) { 0 }
 
-
-while (currentValue(length - 1) == 0) {
-  // Make nextValue by summing currentValue and lastValue
-  for (i <- (0 to length-1)) {
-    nextValue(i) = currentValue(i) + lastValue(i)
+// Iterate until have a 1,000 digit Fibonacci number.
+while (currentValue(digits - 1) == 0) {
+  // Make nextValue by summing currentValue and previousValue.
+  for (i <- (0 to digits-1)) {
+    nextValue(i) = currentValue(i) + previousValue(i)
   }
 
-  val tmp = lastValue
-  lastValue = currentValue
+  // Move currentValue -> previousValue, nextValue -> currentValue.
+  val tmp = previousValue
+  previousValue = currentValue
   currentValue = nextValue
+  // And recycle the previousValue array for nextValue since reference copies.
   nextValue = tmp
 
   currentFibonacci += 1
 
   // Fix the carries.
-  for (i <- (0 to length-1)) {
+  for (i <- (0 to digits-1)) {
     if (currentValue(i) > 9) {
       val carry = currentValue(i) / 10
       currentValue(i) %= 10
@@ -59,5 +65,5 @@ while (currentValue(length - 1) == 0) {
   }
 }
 
-val answer = currentFibonacci
+val answer = currentFibonacci // = 4,782
 println(answer)

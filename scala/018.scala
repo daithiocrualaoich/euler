@@ -1,12 +1,14 @@
 /*
+ * Maximum Path Sum I
+ * ==================
  * By starting at the top of the triangle below and moving to adjacent numbers
  * on the row below, the maximum total from top to bottom is 23.
- * 
+ *
  *    3
  *   7 4
  *  2 4 6
  * 8 5 9 3
- * 
+ *
  * That is, 3 + 7 + 4 + 9 = 23.
  *
  * Find the maximum total from top to bottom of the triangle below:
@@ -26,15 +28,15 @@
  *   91 71 52 38 17 14 91 43 58 50 27 29 48
  *  63 66 04 68 89 53 67 30 73 16 69 87 40 31
  * 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23
- *
  */
 
+// Build up from the bottom row recursively.
 //
-// Build up from the bottom row. The maximum total for top to bottom for the
-// subtree located at each of the bottom row nodes is the value in the node.
-// For an internal now, the maximum total from it to the bottom is the value in
-// the node plus the maximum total in the nodes adjacent to it in the next row.
-//
+//  Base Case: The maximum total for top to bottom for the subtree located at
+//             each of the bottom row nodes is the value in the node.
+//  Recursive: For an internal node, the maximum total from it to the bottom is
+//             the value in the node plus the maximum total in the nodes
+//             adjacent to it in the next row.
 
 val tree = Array(
   Array(75),
@@ -65,5 +67,5 @@ for {
   )
 }
 
-val answer = tree(0)(0)
+val answer = tree(0)(0) // = 1,074
 println(answer)

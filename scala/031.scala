@@ -1,4 +1,6 @@
 /*
+ * Coin Sums
+ * =========
  * In the United Kingdom the currency is made up of pound (£) and pence (p).
  * There are eight coins in general circulation:
  *
@@ -16,7 +18,7 @@
 //  * There is a root node with child nodes labelled for each of the coin
 //    denominations, 200, 100, 50, 20, 10, 5, 2, 1.
 //  * A node cannot have any descendent nodes labelled with a coin denomination
-//    larger than its value.
+//    larger than its own value.
 //  * A node will have a child node of a given coin denomination if the sum of
 //    that and all node coin denominations ancestors does not exceed 200.
 //
@@ -35,9 +37,9 @@ def countCoinSums(target: Int, coins: List[Int]): Int = {
       countCoinSums(target - coin, coins.filter { _ <= coin })
     }
   }
-  
+
   childNodeCoinSums.sum
 }
 
-val answer = countCoinSums(200, List(200, 100, 50, 20, 10, 5, 2, 1))
+val answer = countCoinSums(200, List(200, 100, 50, 20, 10, 5, 2, 1)) // = 73,682
 println(answer)

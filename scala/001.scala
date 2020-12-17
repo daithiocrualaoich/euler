@@ -5,18 +5,15 @@
  * get 3, 5, 6 and 9. The sum of these multiples is 23.
  *
  * Find the sum of all the multiples of 3 or 5 below 1000.
- *
  */
 
-import scala.language.{implicitConversions, reflectiveCalls}
-
-implicit def Int2Divides(d: Int) = new {
+implicit class Int2Divides(d: Int) {
   def divides(n: Int): Boolean = n % d == 0
 }
 
-val multiples = Range(1, 1000) filter { n =>
+val multiples = (1 to 1000) filter { n =>
   (3 divides n) || (5 divides n)
 }
 
-val answer = multiples.sum
+val answer = multiples.sum // = 233,168
 println(answer)

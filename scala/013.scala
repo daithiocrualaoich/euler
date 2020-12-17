@@ -1,7 +1,9 @@
 /*
+ * Large Sum
+ * =========
  * Work out the first ten digits of the sum of the following one-hundred
  * 50-digit numbers.
- * 
+ *
  * 37107287533902102798797998220837590246510135740250
  * 46376937677490009712648124896970078050417018260538
  * 74324986199524741059474233309513058123726617309629
@@ -103,8 +105,6 @@
  * 20849603980134001723930671666823555245252804609722
  * 53503534226472524250874054075591789781264330331690
  */
-
-import scala.language.{implicitConversions, reflectiveCalls}
 
 val numbers = List(
   "37107287533902102798797998220837590246510135740250",
@@ -226,12 +226,12 @@ val numbers = List(
 // So we only have to calculate the prefix sum until the point where the first
 // ten columns could not be changed by a carry in of 99.
 //
-// i.e. the first ten digits of sum == the first ten digits of (sum + 99) 
+// i.e. the first ten digits of sum == the first ten digits of (sum + 99)
 //
 // This prefix sum will fit in 64-bit arithmetic whereas the full sum won't.
 //
 
-implicit def Long2Prefix(n: Long) = new {
+implicit class Long2Prefix(n: Long) {
   def prefix(length: Int): Long = n.toString.take(length).mkString.toLong
 }
 
@@ -243,5 +243,5 @@ do {
   prefixSum = numbers.map { _.take(prefixLength).toLong }.sum
 } while(prefixSum.prefix(10) != (prefixSum + 99).prefix(10))
 
-val answer = prefixSum.prefix(10)
+val answer = prefixSum.prefix(10) // = 5,537,376,230
 println(answer)

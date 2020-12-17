@@ -1,5 +1,5 @@
-/* 
- * Largest palindrome product
+/*
+ * Largest Palindrome Product
  * ==========================
  * A palindromic number reads the same both ways. The largest palindrome made
  * from the product of two 2-digit numbers is 9009 = 91 x 99.
@@ -7,10 +7,8 @@
  * Find the largest palindrome made from the product of two 3-digit numbers.
  */
 
-import scala.language.{implicitConversions, reflectiveCalls}
-
 // Test for palindromic numbers by converting to strings and reversing.
-implicit def Int2IsPalindromic(n: Int) = new {
+implicit class Int2IsPalindromic(n: Int) {
   val isPalindromic: Boolean = n.toString.reverse == n.toString
 }
 
@@ -24,5 +22,5 @@ val products = for {
 val palindromes = products filter { _.isPalindromic }
 
 // And take the maximum.
-val answer = palindromes.max
+val answer = palindromes.max // = 906,609
 println(answer)
