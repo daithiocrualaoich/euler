@@ -1,7 +1,39 @@
 Project Euler Problems
 ======================
-Implementations of [Project Euler] problems in Literate Coffeescript, Python,
-Rust, and Scala.
+Implementations of [Project Euler] problems in Kotlin, Literate Coffeescript,
+Python, Rust, and Scala.
+
+
+Kotlin
+------
+Requires a JVM and [Kotlin] installation on your system.
+
+To run a problem use:
+
+    kotlinc -script 001.kts
+
+### Kotlin Installation (macOS)
+Create a Kotlin development environment using [SDKMAN].
+
+    $ curl -s "https://get.sdkman.io" | bash
+
+Follow the caveats printed to enable SDKMAN in the current shell.
+
+    $ source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+Then install Java and Kotlin:
+
+    $ sdk install java
+    $ sdk install kotlin
+
+Commands:
+
+* `sdk help` to show commands.
+* `sdk current` to show current SDK versions.
+* `sdk list` to list available SDK.
+* `sdk install <sdk>` to install a new SDK version.
+* `sdk use <sdk>` to select a given SDK version for use.
+* `sdk uninstall <sdk>` to uninstall a given SDK version.
 
 
 Literate Coffeescript
@@ -55,17 +87,41 @@ To run a problem use:
 
 Scala
 -----
-Requires a JVM installation on your system.
+Requires a Java installation on your system.
 
 To run a problem use the bootstrap [Ammonite] script in the `scala` directory:
 
     cd scala
     ./amm 001.scala
 
+### Java Installation (macOS)
+Create a Java development environment using [SDKMAN].
+
+    $ curl -s "https://get.sdkman.io" | bash
+
+Follow the caveats printed to enable SDKMAN in the current shell.
+
+    $ source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+Then install Java:
+
+    $ sdk install java
+
+Commands:
+
+* `sdk help` to show commands.
+* `sdk current` to show current SDK versions.
+* `sdk list` to list available SDK.
+* `sdk install <sdk>` to install a new SDK version.
+* `sdk use <sdk>` to select a given SDK version for use.
+* `sdk uninstall <sdk>` to uninstall a given SDK version.
+
 
 [Project Euler]: https://projecteuler.net
+[SDKMAN]: https://sdkman.io/
+[Kotlin]: https://kotlinlang.org/
 [NodeJS]: https://nodejs.org
 [Coffee]: https://coffeescript.org
 [Python]: https://python.org
-[Ammonite]: https://ammonite.io
 [Rust]: https://www.rust-lang.org
+[Ammonite]: https://ammonite.io
