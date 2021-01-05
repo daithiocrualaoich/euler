@@ -49,6 +49,15 @@ def digit_expansion(n, base=10):
         return digits
 
 
+def digit_unexpansion(digits):
+    '''
+        Reverse the digit_expansion operation and return a single integer.
+    '''
+
+    # Use string operations to concatenate digits.
+    return int(''.join(str(digit) for digit in digits))
+
+
 def rotations(n):
     '''
         Return a list of the digit rotations of n for n >= 0.
@@ -68,6 +77,20 @@ def rotations(n):
     rotations = set(rotations)
 
     return rotations
+
+
+def prefixes(l):
+    '''
+        Return a list of the prefixes of the given list.
+    '''
+    return (l[:i+1] for i in range(len(l)))
+
+
+def suffixes(l):
+    '''
+        Return a list of the suffixes of the given list.
+    '''
+    return (l[i:] for i in range(len(l)))
 
 
 def reverse(n):
