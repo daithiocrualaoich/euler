@@ -15,20 +15,6 @@
 import kotlin.math.sqrt
 
 /**
- * Returns true if the receiving collection contains none of the specified
- * elements.
- *
- * (https://stackoverflow.com/questions/48096204/in-kotlin-how-to-check-contains-one-or-another-value)
- *
- * @param elements the elements to look for in the receiving collection.
- * @return true if no element in [elements] is found in the receiving
- *         collection.
- */
-fun <T> Collection<T>.containsAny(vararg elements: T): Boolean {
-    return any(elements.toSet()::contains)
-}
-
-/**
  * Returns the prefixes of the receiving List.
  */
 fun <T> List<T>.prefixes(): List<List<T>> {
