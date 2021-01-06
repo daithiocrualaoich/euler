@@ -19,12 +19,12 @@ from number_theory import digit_expansion, digit_unexpansion, is_prime, prefixes
 def is_truncatable_prime(n):
     # Single digit primes cannot be truncatable.
     if n < 10:
-      return False
+        return False
 
     # Calculate left and right truncations.
     digits = digit_expansion(n)
-    expansions = list(prefixes(digits)) + list(suffixes(digits))
-    truncations = (digit_unexpansion(expansion) for expansion in expansions)
+    truncations = prefixes(digits) + suffixes(digits)
+    truncations = map(digit_unexpansion, truncations)
 
     # And test truncations are primes.
     return all(is_prime(truncation) for truncation in truncations)

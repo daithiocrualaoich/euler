@@ -1,4 +1,6 @@
 '''
+    Digit Factorials
+    ================
     145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
 
     Find the sum of all numbers which are equal to the sum of the
@@ -34,5 +36,5 @@ def digit_factorial_sum(n):
 
 curious = [n for n in range(3, 10_000_000) if digit_factorial_sum(n) == n]
 
-answer = sum(curious)
+answer = sum(curious)  # = 40,730
 print(answer)

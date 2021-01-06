@@ -7,7 +7,6 @@ def is_prime(n):
     '''
         Test if n is prime by trial division.
     '''
-
     if n < 2:
         return False
 
@@ -25,7 +24,6 @@ def factorial(n):
     '''
         Return n! for n >= 0.
     '''
-
     if n < 0:
         raise ValueError('Negative factorial.')
 
@@ -39,7 +37,6 @@ def digit_expansion(n, base=10):
     '''
         Return a list of the digits in n for n >= 0.
     '''
-
     if n < base:
         return [n]
     else:
@@ -53,52 +50,19 @@ def digit_unexpansion(digits):
     '''
         Reverse the digit_expansion operation and return a single integer.
     '''
-
     # Use string operations to concatenate digits.
     return int(''.join(str(digit) for digit in digits))
-
-
-def rotations(n):
-    '''
-        Return a list of the digit rotations of n for n >= 0.
-    '''
-
-    rotations = []
-    digits = digit_expansion(n)
-
-    for i in range(len(digits)):
-        # Make the next rotation.
-        digits.append(digits.pop(0))
-        rotation = int(''.join(str(d) for d in digits))
-
-        rotations.append(rotation)
-
-    # Some rotations can be the same number.
-    rotations = set(rotations)
-
-    return rotations
 
 
 def prefixes(l):
     '''
         Return a list of the prefixes of the given list.
     '''
-    return (l[:i+1] for i in range(len(l)))
+    return [l[:i+1] for i in range(len(l))]
 
 
 def suffixes(l):
     '''
         Return a list of the suffixes of the given list.
     '''
-    return (l[i:] for i in range(len(l)))
-
-
-def reverse(n):
-    '''
-        Reverse the digits in an integer.
-    '''
-
-    digits = digit_expansion(n)
-    digits.reverse()
-
-    return int(''.join(str(d) for d in digits))
+    return [l[i:] for i in range(len(l))]
