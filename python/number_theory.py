@@ -54,15 +54,15 @@ def digit_unexpansion(digits):
     return int(''.join(str(digit) for digit in digits))
 
 
-def prefixes(l):
+def prefixes(lst):
     '''
         Return a list of the prefixes of the given list.
     '''
-    return [l[:i+1] for i in range(len(l))]
+    return [lst[: i + 1] for i in range(len(lst))]
 
 
-def suffixes(l):
+def suffixes(lst):
     '''
         Return a list of the suffixes of the given list.
     '''
-    return [l[i:] for i in range(len(l))]
+    return [lst[i:] for i in range(len(lst))]

@@ -13,7 +13,13 @@
 '''
 
 from itertools import count, islice
-from number_theory import digit_expansion, digit_unexpansion, is_prime, prefixes, suffixes
+from number_theory import (
+    digit_expansion,
+    digit_unexpansion,
+    is_prime,
+    prefixes,
+    suffixes,
+)
 
 
 def is_truncatable_prime(n):
